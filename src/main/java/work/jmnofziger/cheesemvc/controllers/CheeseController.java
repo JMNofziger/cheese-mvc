@@ -1,6 +1,5 @@
 package work.jmnofziger.cheesemvc.controllers;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,6 @@ public class CheeseController {
     @RequestMapping(value="")
     public String index(Model model){
         String title = "My Cheeses";
-
         model.addAttribute("cheeses", cheeses);
         model.addAttribute("title",title);
         return "cheese/index";
