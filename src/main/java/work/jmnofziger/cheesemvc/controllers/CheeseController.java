@@ -20,9 +20,19 @@ public class CheeseController {
         cheeses.add("parmesan");
         cheeses.add("munster");
 
-//        model.addAttribute("cheeses", cheeses);
+        model.addAttribute("cheeses", cheeses);
         model.addAttribute("title",title);
         return "cheese/index";
     }
 
+    @RequestMapping(value="add")
+    public String displayAddCheeseForm(Model model){
+        model.addAttribute("title", "Add Cheese");
+        return "cheese/add";
+    }
+
+    @RequestMapping(value="add")
+    public String processAddCheeseForm(){
+
+    }
 }
