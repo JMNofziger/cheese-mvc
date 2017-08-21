@@ -5,10 +5,10 @@
     <h1 th:text="${title}">Default Title</h1>
     <nav th:replace="fragments :: navigation"></nav>
 
-    // Code to run if no cheeses in session
+    <!-- Code to run if no cheeses in session-->
     <p th:unless="${cheeses} and ${cheeses.size()}">No cheese :'(</p>
 
-    // Iterate through cheese objects if they are present
+    <!-- Iterate through cheese objects if they are present-->
     <ul th:each="cheese : ${cheeses}" >
         <li th:text="${cheese.key}"></li>
         <ul>
