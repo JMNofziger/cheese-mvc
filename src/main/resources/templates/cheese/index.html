@@ -8,13 +8,22 @@
     <!-- Code to run if no cheeses in session-->
     <p th:unless="${cheeses} and ${cheeses.size()}">No cheese :'(</p>
 
-    <!-- Iterate through cheese objects if they are present-->
-    <ul th:each="cheese : ${cheeses}" >
-        <li th:text="${cheese.key}"></li>
-        <ul>
-            <li th:text="${cheese.value}">Default</li>
+    <form method="post">
+        <!-- Iterate through cheese objects if they are present-->
+        <!-- TODO: add checkboxes to remove cheese from list -->
+        <ul th:each="cheese : ${cheeses}" >
+            <div class="chsUnit" th:id="${cheese.key}+'Group'">
+                <li th:text="${cheese.key}"></li>
+                <!-- Checkbox elements for item removal -->
+                <input class="chsRemoval" type="checkbox" th:id="'rmv'+${cheese.key}" th:name="${cheese.key}" th:value="'rmv'+${cheese.key}" />
+                <!-- The label for checkbox above -->
+                <label class="chsRemoval" th:for="'rmv'+${cheese.key}" th:text="'Remove '+${cheese.key}"></label>
+                <ul>
+                    <li th:text="${cheese.value}">Default</li>
+                </ul>
+            </div>
         </ul>
-    </ul>
-
+        <input type="submit" value="Remove Checked Items" />
+    </form>
 </body>
 </html>
